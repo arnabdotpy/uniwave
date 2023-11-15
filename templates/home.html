@@ -91,8 +91,8 @@
           <div class="card-body">
             <h5 class="card-title">{{ announcement.title }}</h5>
             <p class="card-text">{{ announcement.description }}</p>
-            <p class="card-text"><small class="text-muted">Author: {{ announcement.author }} | Date:
-                {{ announcement.date }}</small></p>
+            <p class="card-text"><small class="text-muted" id="author">Author: {{ announcement.author }}</small></p>
+            <p class="card-text"><small class="text-muted" id="eventDate">Event Date: {{ announcement.eventDate }}</small></p>
             <span class="badge bg-secondary">{{ announcement.tag }}</span>
           </div>
         </div>
@@ -138,6 +138,20 @@
           }
         });
       });
+    });
+
+    // Change card color according to date
+    var cards = document.querySelectorAll(".card");
+    cards.forEach((card) => {
+      var date = card.querySelector("#eventDate").innerHTML;
+      var date = new Date(date);
+      var today = new Date();
+      if (date.getDate() == today.getDate()) {
+        card.style.backgroundColor = "#00FF0050";
+      }
+      if (date.getDate() == today.getDate() + 1) {
+        card.style.backgroundColor = "#CCCC0050";
+      }
     });
   </script>
 </body>

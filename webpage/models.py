@@ -8,7 +8,7 @@ class Announcement(models.Model):
   TAG_CHOICES = [
         ('Academic', 'Academic'),
         ('Clubs & Chapters', 'Clubs & Chapters'),
-        ('event', 'Events'),
+        ('Events', 'Events'),
         ('Placement', 'Placement'),
         ('Scholarship', 'Scholarship'),
         ('Seminar', 'Seminar'),
@@ -16,4 +16,5 @@ class Announcement(models.Model):
         ('Other', 'Other'),
     ]  
   tag = models.CharField(max_length=100, choices=TAG_CHOICES)
-  date = models.DateTimeField(auto_now_add=True)
+  eventDate = models.DateField()
+  createdAt = models.DateTimeField(auto_now_add=True)

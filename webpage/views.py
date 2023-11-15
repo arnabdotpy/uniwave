@@ -4,7 +4,7 @@ from .models import *
 # Create your views here.
 
 def home(request):
-    announcements = list(Announcement.objects.all().order_by('-date'))
+    announcements = list(Announcement.objects.all().order_by('eventDate', '-createdAt'))
     context = {
         'announcements': announcements
     }
